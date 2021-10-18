@@ -22,7 +22,7 @@ so we append the most valuable transaction each 60 seconds.
 We use anaconda, pycharm, simple python file or whatever for our editor.
 We use terminal to execute the the code
 first we need to get to the correct folder
-for example: cd Desktop/scraper
+for example: cd Desktop
 
 Once we are in the correct folder, we just type in python3 mongo.py to run it
 An the code will be executed.
