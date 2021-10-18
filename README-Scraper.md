@@ -27,6 +27,17 @@ A simple while loop is used to scrape the values each 60 seconds upto 10 values.
 so we append the most valuable transaction each 60 seconds.
 
 ## Running it on the virtual machine
+Steps to install mongodb:
+1. wget -qO - https://www.mongodb.org/static/pgp/server-5.0.asc | sudo apt-key add -
+2. sudo apt-get install gnupg
+3. wget -qO - https://www.mongodb.org/static/pgp/server-5.0.asc | sudo apt-key add -
+4. echo "deb [ arch=amd64,arm64 ] https://repo.mongodb.org/apt/ubuntu focal/mongodb-org/5.0 multiverse" | sudo tee /etc/apt/sources.list.d/mongodb-org-5.0.list
+5. sudo apt-get install -y mongodb-org
+6. ps --no-headers -o comm 1
+7. sudo systemctl start mongod
+To check the status:
+sudo systemctl status mongod
+
 We use anaconda, pycharm, simple python file or whatever for our editor.
 We use terminal to execute the the code
 first we need to get to the correct folder
