@@ -55,7 +55,7 @@ import pymongo
 we need to run pip install pymongo probably on the terminal on our virutal machine if it is not installed before.
 
 ## Explaining the code
-A simple while loop is used to scrape the values each 60 seconds upto 10 values. And then it is saved in mongo database.
+A simple while loop is used to scrape the values each 60 seconds upto 10 values. And then it is saved in the mongo database.
 so we append the most valuable transaction each 60 seconds.
 
 ## Running it on the virtual machine
@@ -69,6 +69,11 @@ Steps to install mongodb:
 7. sudo systemctl start mongod
 To check the status:
 sudo systemctl status mongod
+
+Steps to install mongodb compass:
+1. wget https://downloads.mongodb.com/compass/mongodb-compass_1.26.1_amd64.deb
+2. sudo dpkg -i mongodb-compass_1.26.1_amd64.deb
+
 We use anaconda, pycharm, simple python file or whatever for our editor.
 We use terminal to execute the the code
 first we need to get to the correct folder
@@ -77,5 +82,5 @@ for example: cd Desktop
 Once we are in the correct folder, we just type in python3 mongo.py to run it
 An the code will be executed.
 
-And you will notice that in our mongo database a new database by the name of bitcoin has created and if you refresh each 60 seconds a new transaction is added. 
+And you will notice that in our mongodb compass that a new database by the name of bitcoin has created and if you refresh each 60 seconds a new transaction is added. 
 To keep along with each append to the bitcoin database. I printed the values at the same time while the append happens.
