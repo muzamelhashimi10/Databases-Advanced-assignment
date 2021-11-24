@@ -66,7 +66,9 @@ Steps to install mongodb:
 4. echo "deb [ arch=amd64,arm64 ] https://repo.mongodb.org/apt/ubuntu focal/mongodb-org/5.0 multiverse" | sudo tee /etc/apt/sources.list.d/mongodb-org-5.0.list
 5. sudo apt-get install -y mongodb-org
 6. ps --no-headers -o comm 1
-7. sudo systemctl start mongod
+
+To start our mongodb, we run first:
+sudo systemctl start mongod
 To check the status:
 sudo systemctl status mongod
 
@@ -79,8 +81,50 @@ We use terminal to execute the the code
 first we need to get to the correct folder
 for example: cd Desktop
 
-Once we are in the correct folder, we just type in python3 mongo.py to run it
+Once we are in the correct folder, we just type in python3 scraper.py to run it
 An the code will be executed.
 
 And you will notice that in our mongodb compass that a new database by the name of bitcoin has created and if you refresh each 60 seconds a new transaction is added. 
 To keep along with each append to the bitcoin database. I printed the values at the same time while the append happens.
+
+# REDIS-Assignment 3
+
+## What we have to do?
+We used redis as a caching mechanism so the whole thing gets stored in redis first and then gets cleared after a minute.
+
+## Libraries needed
+import redis
+
+we need to run pip install redis
+
+## Explaining the code
+Just a simple caching mechanism where the datas are stored in for a minute and then it gets cleared and the new datas comin. 
+
+## Running it on the virtual machine
+Steps to install redis:
+1. wget http :// download.redis.io/redis -stable.tar.gz
+2. tar xvzf redis -stable.tar.gz
+3. cd redis -stable
+4. make
+5. make test
+
+To start our redis:
+1. cd src
+2. redis-server
+3. redis-cli ping
+if PONG appears it means we are good to go
+
+Steps to install redis GUI(It is useful to see the process of adding to the redis and deleting from the redis:
+sudo snap install redis-gui
+
+We use anaconda, pycharm, simple python file or whatever for our editor.
+We use terminal to execute the the code
+first we need to get to the correct folder
+for example: cd Desktop
+
+Once we are in the correct folder, we just type in python3 scraper.py to run it
+An the code will be executed.
+
+And you will notice that in our redis GUI the whole data gets stored in and if you refresh after 1 minute, you will notice the previous datas are deleted and new data have appeared. 
+And at the same time we get the highest bitcoin value stored in our mongodb database and each minute with the new data, we append the highest valued bitcoin to our mongo database.
+
