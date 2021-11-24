@@ -114,6 +114,9 @@ To start our redis:
 3. redis-cli ping
 if PONG appears it means we are good to go
 
+WE also need to start the mongodb by running:
+sudo systemctl start mongod
+
 Steps to install redis GUI(It is useful to see the process of adding to the redis and deleting from the redis:
 sudo snap install redis-gui
 
