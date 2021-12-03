@@ -7,9 +7,9 @@ import time
 
 r = redis.Redis()
 
-# myclient = pymongo.MongoClient("mongodb://localhost:27017/")
-# mydb = myclient["Bitcoin"]
-# mycol = mydb["Transactions"]
+myclient = pymongo.MongoClient("mongodb://localhost:27017/")
+mydb = myclient["Bitcoin"]
+mycol = mydb["Transactions"]
 
 wait = time.sleep
 
@@ -64,15 +64,26 @@ def scraper():
     print('Amount(USD): ' + USD + "\n")
 
     # MONGO
-    # mydict = {"Hash": item[0], "Time": item[1], "Amount(BTC)": item[2], "Amount(USD)": item[4]}
-    # x = mycol.insert_one(mydict)
+    mydict = {"Hash": Hash, "Time": Time, "Amount(BTC)": BTC, "Amount(USD)": USD}
+    x = mycol.insert_one(mydict)
 
     # REDIS
-    r.hset(Hash, "Time", Time)
-    r.hset(Hash, "BTC", BTC)
-    r.hset(Hash, "USD", USD)
+    for item in sorted_list:
+        Hash = item[0]
+        Time = item[1]
+        BTC = item[2]
+        USD = item[4]
+
+        r.hset(Hash, "Time", Time)
+        r.hset(Hash, "BTC", BTC)
+        r.hset(Hash, "USD", USD)
+
 
     wait(60)
+
+    for key in r.scan_iter("*"):
+        r.delete(key)
+
 
 
 index = 1
