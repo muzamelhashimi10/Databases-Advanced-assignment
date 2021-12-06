@@ -90,15 +90,18 @@ To keep along with each append to the bitcoin database. I printed the values at 
 # REDIS-Assignment 3
 
 ## What we have to do?
-We used redis as a caching mechanism so the whole thing gets stored in redis first and then gets cleared after a minute.
+We have to make two scripts-Redis and mongo
+We use redis as a caching mechanism so the whole thing gets stored in redis first and then gets cleared after a minute. 
+We use Mongo to get data from redis to our mongodb.
 
 ## Libraries needed
 import redis
+import mongo
 
-we need to run pip install redis
+we need to run pip install redis if not previously installed
 
 ## Explaining the code
-Just a simple caching mechanism where the datas are stored in for a minute and then it gets cleared and the new datas comin. 
+Just a simple caching mechanism where the datas are stored in for a minute and then it gets cleared and the new datas coming in. We use redis becuase it is fast.
 
 ## Running it on the virtual machine
 Steps to install redis:
@@ -115,9 +118,7 @@ To start our redis:
 
 if PONG appears it means we are good to go
 
-WE also need to start the mongodb by running:
-
-sudo systemctl start mongod
+To help you see what are you doing, we install redis GUI:
 
 Steps to install redis GUI(It is useful to see the process of adding to the redis and deleting from the redis:
 
@@ -128,9 +129,13 @@ We use terminal to execute the the code
 first we need to get to the correct folder
 for example: cd Desktop
 
-Once we are in the correct folder, we just type in python3 scraper.py to run it
+Once we are in the correct folder, we just type in python3 main.py to run it
 An the code will be executed.
+All the transactions are saved in redis and each minute replaced by new transactions.
 
 And you will notice that in our redis GUI the whole data gets stored in and if you refresh after 1 minute, you will notice the previous datas are deleted and new data have appeared. 
-And at the same time we get the highest bitcoin value stored in our mongodb database and each minute with the new data, we append the highest valued bitcoin to our mongo database.
+
+Then we run python3 mongo.py, so the transactions that are stored in redis we get them to the mongodb.
+
+So we add the the transactons that are in our redis, we send them to our mongodb on a new database called Bitcoin.
 
