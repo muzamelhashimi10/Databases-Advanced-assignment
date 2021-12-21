@@ -3,6 +3,6 @@ FROM python:3.8
 
 ADD main.py .
 
-RUN pip install requests beautifulsoup4 redis
+RUN pip install pymongo redis
 
 CMD ["python", "./main.py"]
