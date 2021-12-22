@@ -139,3 +139,42 @@ Then we run python3 mongo.py, so the transactions that are stored in redis we ge
 
 So we add the the transactons that are in our redis, we send them to our mongodb on a new database called Bitcoin.
 
+# Final-Assignment 4
+
+## What we have to do?
+Get Docker up and running on the VM. Search for a docker image for Redis and for Mongo on Docker Hub.
+Get these up and running, and try to connect your scraper to them. Upload the scripts you have used for this, and a screenshot with it working to Canvas.
+
+## What we have to do before running connecting to the scraper?
+Install docker from docker.com/get-started
+Install docker image for redis and for mongo by running 
+docker pull redis and docker pull mongo 
+
+After getting redis and mongo images. we build a docker container file for our scrapers.
+We use the command,
+For redis scraper:
+docker build -t python-redis .  
+For mongo scraper:
+docker build -t python-mongo . 
+
+## Running it on the virtual machine
+
+After building our scraper containers, we try to connect them with the corresponding images. python-redis with redis image and python-mongo with mongo image.
+By running command,
+For redis,
+first: docker run -d --network=host redis
+Second: docker run --network=host python-redis
+
+We do the same with for mongo,
+irst: docker run -d --network=host mongo
+Second: docker run --network=host python-mongo
+
+If sometime docker shows connection error. It can be solved through:
+sudo chmod 666 /var/run/docker.sock
+
+We should always start mongo so the mongo docker could work:
+sudo sytemctl start mongod
+
+
+
+
