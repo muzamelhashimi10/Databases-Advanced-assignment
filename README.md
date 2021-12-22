@@ -164,16 +164,27 @@ By running command,
 For redis,
 first: docker run -d --network=host redis
 Second: docker run --network=host python-redis
+To run redis, 
+redis-cli then PING if PONG(means redis is running)
 
 We do the same with for mongo,
 irst: docker run -d --network=host mongo
 Second: docker run --network=host python-mongo
+We should always start mongo so the mongo docker could work:
+sudo sytemctl start mongod
 
+How to run docker?
+sudo systemctl restart docker
 If sometime docker shows connection error. It can be solved through:
 sudo chmod 666 /var/run/docker.sock
 
-We should always start mongo so the mongo docker could work:
-sudo sytemctl start mongod
+
+### Some useful commands for docker
+docker ps (shows all the running containers)
+docker ps -a (shows all the container whether running or stopped)
+docker info
+docker image ls (list of all images installed)
+
 
 
 
